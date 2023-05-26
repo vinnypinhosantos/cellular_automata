@@ -1,5 +1,6 @@
 package ca;
 
+
 import java.util.Random;
 
 public class Estado {
@@ -13,9 +14,18 @@ public class Estado {
 	
 	public Estado() {
 		Random random = new Random();
-		int estadoAleatorio = random.nextInt(3); // gera um número aleatório entre 1 e 3
+		int estadoAleatorio = random.nextInt(3);
 		nome = possiveisEstados[estadoAleatorio][0];
 		abreviacao = possiveisEstados[estadoAleatorio][1];
+	}
+	
+	public Estado(String nome) {
+		for (String[] possivelEstado : possiveisEstados) {
+			if (possivelEstado[0].equals(nome)) {
+				this.nome = nome;
+				this.abreviacao = possivelEstado[1];
+			}
+		}
 	}
 	
 	@Override
